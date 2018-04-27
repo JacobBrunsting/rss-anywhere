@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'FeedCreator',
   data () {
@@ -21,6 +23,12 @@ export default {
   methods: {
     generate: function () {
       console.log(this.url)
+      axios({
+        method: 'GET',
+        url: this.url
+      }).then(response => {
+        console.log(JSON.stringify(response))
+      })
     }
   }
 }
